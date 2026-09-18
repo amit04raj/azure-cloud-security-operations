@@ -1,13 +1,19 @@
+import os
+
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
+from azure.monitor.opentelemetry import configure_azure_monitor
+
 from app.calculator import calculate
 from app.cidr import calculate_cidr
 from app.converter import convert_units
 
+if os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING"):
+    configure_azure_monitor()
 
 app = FastAPI(
     title="Azure Secure Network Platform",

@@ -16,3 +16,7 @@ venv/
 .env
 .env.*
 !.env.example
+
+# Local diagnostic logs
+app-logs/
+app-logs.zip
