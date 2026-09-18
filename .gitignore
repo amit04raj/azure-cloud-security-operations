@@ -20,3 +20,5 @@ venv/
 # Local diagnostic logs
 app-logs/
 app-logs.zip
+app-logs-latest/
+app-logs-latest.zip
