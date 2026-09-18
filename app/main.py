@@ -3,8 +3,11 @@ import os
 from azure.monitor.opentelemetry import configure_azure_monitor
 
 if os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING"):
+    print("Application Insights: connection string detected")
     configure_azure_monitor()
-
+    print("Application Insights: configure_azure_monitor completed")
+else:
+    print("Application Insights: connection string not detected")
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
