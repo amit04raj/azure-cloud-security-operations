@@ -1,0 +1,9 @@
+AppTraces
+| where TimeGenerated > ago(24h)
+| where Message == "calculator_request_rejected"
+| project
+    TimeGenerated,
+    SeverityLevel,
+    Message,
+    Properties
+| order by TimeGenerated desc

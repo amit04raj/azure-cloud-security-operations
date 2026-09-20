@@ -1,0 +1,11 @@
+AppRequests
+| where TimeGenerated > ago(24h)
+| where Success == false or toint(ResultCode) >= 400
+| project
+    TimeGenerated,
+    ResultCode,
+    Name,
+    Url,
+    DurationMs,
+    Success
+| order by TimeGenerated desc

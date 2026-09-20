@@ -1,0 +1,12 @@
+AppDependencies
+| where TimeGenerated > ago(24h)
+| where Success == false or toint(ResultCode) >= 400
+| project
+    TimeGenerated,
+    Target,
+    DependencyType,
+    Name,
+    ResultCode,
+    Success,
+    DurationMs
+| order by TimeGenerated desc

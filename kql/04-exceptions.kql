@@ -1,0 +1,10 @@
+AppExceptions
+| where TimeGenerated > ago(24h)
+| project
+    TimeGenerated,
+    ProblemId,
+    OuterMessage,
+    InnermostMessage,
+    Type,
+    SeverityLevel
+| order by TimeGenerated desc

@@ -1,0 +1,8 @@
+AppRequests
+| where TimeGenerated > ago(1h)
+| summarize
+    TotalRequests = count(),
+    SuccessfulRequests = countif(Success == true),
+    FailedRequests = countif(Success == false),
+    AverageDurationMs = round(avg(DurationMs), 2),
+    P95DurationMs = round(percentile(DurationMs, 95), 2)
