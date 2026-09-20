@@ -22,3 +22,9 @@ app-logs/
 app-logs.zip
 app-logs-latest/
 app-logs-latest.zip
+app-logs-diagnostic/
+app-logs-diagnostic.zip
+invalid-request.json
+la-query.json
+provider-schema.json
+terraform/investigation-*.json

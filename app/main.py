@@ -1,4 +1,5 @@
 import os
+import logging
 
 from azure.monitor.opentelemetry import configure_azure_monitor
 
@@ -20,6 +21,7 @@ from app.calculator import calculate
 from app.cidr import calculate_cidr
 from app.converter import convert_units
 
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="Azure Secure Network Platform",
@@ -77,6 +79,15 @@ def calculator(request: CalculatorRequest):
         }
 
     except ValueError as error:
+        logger.warning(
+            "calculator_request_rejected",
+            extra={
+                "event": "calculator_request_rejected",
+                "operation": request.operation,
+                "reason": "invalid_operation_or_input",
+            },
+        )
+
         raise HTTPException(
             status_code=400,
             detail=str(error),
