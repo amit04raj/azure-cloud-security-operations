@@ -13,7 +13,7 @@ resource "azurerm_application_insights_workbook" "operations" {
     {
       "type": 1,
       "content": {
-        "json": "# Cloud Security Operations\\n\\nUtility Hub operational monitoring and investigation."
+        "json": "# Cloud Security Operations\n\nUtility Hub operational monitoring and investigation."
       },
       "name": "header"
     },
@@ -21,7 +21,7 @@ resource "azurerm_application_insights_workbook" "operations" {
       "type": 3,
       "content": {
         "version": "KqlItem/1.0",
-        "query": "AppRequests\\n| where TimeGenerated > ago(1h)\\n| summarize TotalRequests=count(), SuccessfulRequests=countif(Success == true), FailedRequests=countif(Success == false), AverageDurationMs=round(avg(DurationMs), 2), P95DurationMs=round(percentile(DurationMs, 95), 2)",
+        "query": "AppRequests\n| where TimeGenerated > ago(1h)\n| summarize TotalRequests=count(), SuccessfulRequests=countif(Success == true), FailedRequests=countif(Success == false), AverageDurationMs=round(avg(DurationMs), 2), P95DurationMs=round(percentile(DurationMs, 95), 2)",
         "size": 0,
         "title": "Request Overview",
         "timeContext": {
@@ -36,7 +36,7 @@ resource "azurerm_application_insights_workbook" "operations" {
       "type": 3,
       "content": {
         "version": "KqlItem/1.0",
-        "query": "AppRequests\\n| where TimeGenerated > ago(24h)\\n| where Success == false or toint(ResultCode) >= 400\\n| project TimeGenerated, ResultCode, Name, Url, DurationMs, Success\\n| order by TimeGenerated desc",
+        "query": "AppRequests\n| where TimeGenerated > ago(24h)\n| where Success == false or toint(ResultCode) >= 400\n| project TimeGenerated, ResultCode, Name, Url, DurationMs, Success\n| order by TimeGenerated desc",
         "size": 0,
         "title": "Failed Requests",
         "timeContext": {
@@ -51,7 +51,7 @@ resource "azurerm_application_insights_workbook" "operations" {
       "type": 3,
       "content": {
         "version": "KqlItem/1.0",
-        "query": "AppTraces\\n| where TimeGenerated > ago(24h)\\n| where Message == 'calculator_request_rejected'\\n| project TimeGenerated, SeverityLevel, Message, Properties\\n| order by TimeGenerated desc",
+        "query": "AppTraces\n| where TimeGenerated > ago(24h)\n| where Message == 'calculator_request_rejected'\n| project TimeGenerated, SeverityLevel, Message, Properties\n| order by TimeGenerated desc",
         "size": 0,
         "title": "Application Rejection Events",
         "timeContext": {
@@ -66,7 +66,7 @@ resource "azurerm_application_insights_workbook" "operations" {
       "type": 3,
       "content": {
         "version": "KqlItem/1.0",
-        "query": "AppExceptions\\n| where TimeGenerated > ago(24h)\\n| project TimeGenerated, ProblemId, OuterMessage, InnermostMessage, Type, SeverityLevel\\n| order by TimeGenerated desc",
+        "query": "AppExceptions\n| where TimeGenerated > ago(24h)\n| project TimeGenerated, ProblemId, OuterMessage, InnermostMessage, Type, SeverityLevel\n| order by TimeGenerated desc",
         "size": 0,
         "title": "Application Exceptions",
         "timeContext": {
@@ -81,7 +81,7 @@ resource "azurerm_application_insights_workbook" "operations" {
       "type": 3,
       "content": {
         "version": "KqlItem/1.0",
-        "query": "AppDependencies\\n| where TimeGenerated > ago(24h)\\n| where Success == false or toint(ResultCode) >= 400\\n| project TimeGenerated, Target, DependencyType, Name, ResultCode, Success, DurationMs\\n| order by TimeGenerated desc",
+        "query": "AppDependencies\n| where TimeGenerated > ago(24h)\n| where Success == false or toint(ResultCode) >= 400\n| project TimeGenerated, Target, DependencyType, Name, ResultCode, Success, DurationMs\n| order by TimeGenerated desc",
         "size": 0,
         "title": "Dependency Failures",
         "timeContext": {
