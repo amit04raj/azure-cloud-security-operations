@@ -2,9 +2,9 @@ Azure Cloud Security Operations
 
 A cloud operations and monitoring platform built around the Utility Hub workload.
 
-This project takes the same Utility Hub application used in the earlier projects and adds an operational
+This project adds an operational security layer around the Utility Hub workload for observing application 
 
-security layer for observing application behaviour, detecting failures, investigating incidents, and responding
+behaviour, detecting failures, investigating incidents, and responding
 
 through Azure Monitor.
 
@@ -250,7 +250,7 @@ The alert:
 
 • Sends notifications through an Action Group
 
-• Uses common alert schema for the email receiver
+• Uses a common alert schema for the email receiver
 
 A controlled HTTP 400 incident was used to verify that the alert could transition into a fired state.
 
@@ -276,7 +276,7 @@ Core resources include:
 
 • Azure Monitor Workbook
 
-The project uses a separate resource group and Terraform state from the other portfolio projects.
+The infrastructure is isolated within its own Azure resource group and Terraform state.
 
 Application Monitoring
 
@@ -388,7 +388,7 @@ The following are intentionally outside the scope of this project:
 
 • Automated security response
 
-Those capabilities belong to the later advanced cloud security architecture stage of the portfolio.
+Those capabilities are intentionally outside the scope of this project.
 
 Lessons Learned
 
@@ -412,10 +412,6 @@ failures.
 
 • Detection and investigation are different stages of an operational workflow.
 
-
-The application remains intentionally simple so that the engineering progression is demonstrated through the
-
-cloud architecture rather than through unnecessary application complexity.
 
 Project Status
 
