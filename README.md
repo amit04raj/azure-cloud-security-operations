@@ -4,7 +4,7 @@ A cloud operations and monitoring platform built around the Utility Hub workload
 
 This project takes the same Utility Hub application used in the earlier portfolio projects and adds an operational
 
-security layer for observing application behavior, detecting failures, investigating incidents, and responding
+security layer for observing application behaviour, detecting failures, investigating incidents, and responding
 
 through Azure Monitor.
 
@@ -14,79 +14,79 @@ operations layer around the workload.
 
 Architecture
 
-INTERNET
+                                    INTERNET
 
-|
+                                        |
 
-| HTTPS
+                                        | HTTPS
 
-v
+                                        v
 
-+----------------------+
+                            +----------------------+
 
-| App Service |
+                                | App Service |
 
-| Utility Hub API |
+                              | Utility Hub API |
 
-+----------+-----------+
+                            +----------+-----------+
 
-|
+                                      |
 
-+------------+------------+
+                          +------------+------------+
 
-| |
+                                      | |
 
-v v
+                                      v v
 
-+------------------+ +------------------+
+                    +------------------+ +------------------+
 
-| Application | | App Service |
+                        | Application | | App Service |
 
-| Insights | | platform logs |
+                        | Insights | | platform logs |
 
-| telemetry | | |
+                            | telemetry | | |
 
-+--------+---------+ +--------+---------+
+                  +--------+---------+ +--------+---------+
 
-| |
+                                      | |
 
-+------------+------------+
+                        +------------+------------+
 
-|
+                                      |
 
-v
+                                      v
 
-+----------------------+
+                        +----------------------+
 
-| Log Analytics |
+                          | Log Analytics |
 
-| Workspace |
+                            | Workspace |
 
-+----------+-----------+
+                        +----------+-----------+
 
-|
+                                  |
 
-+---------------+---------------+
+                  +---------------+---------------+
 
-| | |
+                                | | |
 
-v v v
+                                v v v
 
-KQL Azure Monitor Workbook
+                    KQL Azure Monitor Workbook
 
-investigation alerts operations view
+                Investigation alerts operations view
 
-|
+                                |
 
-v
+                                v
 
-+----------------+
+                        +----------------+
 
-| Action Group |
+                          | Action Group |
 
-| Email alerting |
+                          | Email alerting |
 
-+----------------+
+                        +----------------+
 
 Observe → Detect → Investigate → Respond
 
@@ -94,29 +94,25 @@ The project follows a simple operational workflow:
 
 Application activity
 
-|
+          |
+          v
 
-v
+        Observe
 
-Observe
+          |
+          v
 
-|
+        Detect
 
-v
+          |
+          v
 
-Detect
+     Investigate
 
-|
+          |
+          v
 
-v
-
-Investigate
-
-|
-
-v
-
-Respond
+        Respond
 
 Observe
 
