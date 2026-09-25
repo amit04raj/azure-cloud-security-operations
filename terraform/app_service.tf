@@ -45,7 +45,7 @@ resource "azurerm_linux_web_app" "app" {
   }
 
   lifecycle {
-   ignore_changes = [
+    ignore_changes = [
       tags["hidden-link: /app-insights-resource-id"]
     ]
   }
